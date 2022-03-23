@@ -1,9 +1,12 @@
 import styled from 'styled-components';
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
+
   return (
-    <Container>
-      <span>CINEFLEX</span>
+    <Container >
+      <span onClick={() => navigate("/")}>CINEFLEX</span>
     </Container>
   );
 }

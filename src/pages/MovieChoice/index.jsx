@@ -1,9 +1,39 @@
-import axios from 'axios';
 import { useState,useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
+
+import {MainContainer,Title,Wrapper,ContainerImages,Image} from './style';
+
+import { getMovie } from '../../services/api';
 
 const MovieChoice = () => {
+  const [images,setImages] = useState([]);
+
+  const navigate = useNavigate();
+
+  useEffect( () => {
+    (async () => {
+      const response = await getMovie();
+      setImages(response.data);
+    })(); 
+  }, []);
+
   return (
-    <h1>Minha linda página de escolha do filme</h1>
+    <MainContainer>
+      <Title>
+        <span>Selecione o filme</span>
+      </Title>
+      <Wrapper>
+        <ContainerImages>
+          {
+            images.map( image => (
+              <Image key={image.id} onClick={() => navigate(`/sessoes/${image.id}`)}>
+                <img src={image.posterURL} alt="ImageURL" />
+              </Image>
+            ))
+          }
+        </ContainerImages>
+      </Wrapper>
+    </MainContainer>
   );
 }
 
