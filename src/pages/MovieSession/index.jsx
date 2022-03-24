@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import { useNavigate } from 'react-router-dom';
 
-import { MainContainer,Title } from '../MovieChoice/style';
+import { MainContainer } from '../MovieChoice/style';
+import { Title,Footer,MovieImage,MovieTitle } from './style';
 import SessionCard from '../../components/SessionCard';
 
 import { getSession } from '../../services/api';
@@ -26,7 +27,9 @@ const MovieSession = () => {
 
   return (
     <MainContainer>
-      <h2>Selecione o horário</h2>
+      <Title>
+        <h1>Selecione o horário</h1>
+      </Title>
 
     {
       session.days.map( item => (
@@ -38,6 +41,15 @@ const MovieSession = () => {
         />
       ))
     }
+
+      <Footer>
+        <MovieImage>
+          <img src={session.posterURL} alt="MovieImage" />
+        </MovieImage>
+        <MovieTitle>
+          <h3>{session.title}</h3>
+        </MovieTitle>
+      </Footer>
 
   </MainContainer>
   );

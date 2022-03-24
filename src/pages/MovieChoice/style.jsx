@@ -29,6 +29,18 @@ const MainContainer = styled.div`
     font-size: 20px;
     color: #293845;
   }
+
+  h3 {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+
+    color: #293845;
+  }
 `
 
 const Title = styled.div`
