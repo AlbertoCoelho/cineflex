@@ -20,7 +20,7 @@ const MovieChoice = () => {
   return (
     <MainContainer>
       <Title>
-        <span>Selecione o filme</span>
+        <h1>Selecione o filme</h1>
       </Title>
       <Wrapper>
         <ContainerImages>

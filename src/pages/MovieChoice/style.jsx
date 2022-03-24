@@ -12,7 +12,7 @@ const MainContainer = styled.div`
 
   padding: 0 15px 125px 15px;
 
-  span{
+  h1{
     font-family: 'Roboto', sans-serif;
     font-size: 24px;
     font-style: normal;
@@ -20,6 +20,14 @@ const MainContainer = styled.div`
     line-height: 28px;
     letter-spacing: 0.04em;
     text-align: center;
+  }
+
+  h2 {
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    color: #293845;
   }
 `
 

@@ -8,3 +8,7 @@ export const getMovie = async () => {
   return api.get("/movies");
 }
 
+export const getSession = async (movieId) => {
+  return api.get(`/movies/${movieId}/showtimes`)
+}
+
