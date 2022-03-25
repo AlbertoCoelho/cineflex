@@ -20,17 +20,17 @@ const UserData = (props) => {
 
   const userInfo = {
     ids: props.selectedSeats,
-    name: {userName},
-    cpf: {userCPF}
+    name: userName,
+    cpf: userCPF
   }
 
   const dataPackage = {name:props.movieName, date:props.movieDate, time:props.movieTime, userInfo:{userInfo}};
 
-  const reservation = async (dataPackage) => {
+  const reservation = async (userInfo) => {
     try {
-      const response = await makeReservation(dataPackage);
+      const response = await makeReservation(userInfo);
       console.log(response);
-      navigate("/sucess", {state: userInfo });
+      navigate("/sucess", {state: dataPackage });
     } catch(error) {
         console.log(error.response);
         alert("There was an error in the data, please fill it in again!");
@@ -38,7 +38,7 @@ const UserData = (props) => {
   }
 
   const submit = () => {
-    reservation(dataPackage);
+    reservation(userInfo);
   }
 
   return (
