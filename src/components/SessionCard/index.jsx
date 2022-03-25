@@ -13,7 +13,7 @@ const SessionCard = ({ weekday, date, showtimes }) => {
         {
           showtimes.map( item => (
             <ButtonContainer key={item.id}>
-              <button onClick={() => navigate(`/assentos/${item.id}`)}>{item.name}</button>
+              <button onClick={() => navigate(`/seats/${item.id}`)}>{item.name}</button>
             </ButtonContainer>
           ))
         }

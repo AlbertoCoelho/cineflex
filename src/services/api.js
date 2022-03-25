@@ -12,3 +12,6 @@ export const getSession = async (movieId) => {
   return api.get(`/movies/${movieId}/showtimes`)
 }
 
+export const getSeats = async (sessionId) => {
+  return api.get(`/showtimes/${sessionId}/seats`)
+}

@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
-import { useNavigate } from 'react-router-dom';
 
 import { MainContainer } from '../MovieChoice/style';
 import { Title,Footer,MovieImage,MovieTitle } from './style';
@@ -11,15 +10,14 @@ import { getSession } from '../../services/api';
 const MovieSession = () => {
   const [session,setSession] = useState(null);
 
-  const { idFilme } = useParams();
-  const navigate = useNavigate();
+  const { movieId } = useParams();
 
   useEffect( () => {
     (async () => {
-      const response = await getSession(idFilme);
+      const response = await getSession(movieId);
       setSession(response.data);
     }) (); 
-  }, [idFilme]);
+  }, [movieId]);
 
   if(session === null){
     return <span>Carregando...</span>

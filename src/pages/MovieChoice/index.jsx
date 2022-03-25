@@ -26,7 +26,7 @@ const MovieChoice = () => {
         <ContainerImages>
           {
             images.map( image => (
-              <Image key={image.id} onClick={() => navigate(`/sessoes/${image.id}`)}>
+              <Image key={image.id} onClick={() => navigate(`/sessions/${image.id}`)}>
                 <img src={image.posterURL} alt="ImageURL" />
               </Image>
             ))
