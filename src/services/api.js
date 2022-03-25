@@ -15,3 +15,7 @@ export const getSession = async (movieId) => {
 export const getSeats = async (sessionId) => {
   return api.get(`/showtimes/${sessionId}/seats`)
 }
+
+export const makeReservation = async (dataPackage) => {
+  return api.post("/seats/book-many", dataPackage);
+}

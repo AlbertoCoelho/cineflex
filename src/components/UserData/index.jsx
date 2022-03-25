@@ -1,0 +1,66 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { makeReservation } from "../../services/api";
+
+import { UserDataContainer,Wrapper,TitleInput } from "./style";
+
+import Input from "../Input";
+import Button from "../Button";
+
+
+const UserData = (props) => {
+  const [userName,setUserName] = useState("");
+  const [userCPF,setUserCPF] = useState("");
+  console.log(props.selectedSeats);
+  console.log(userName);
+  console.log(userCPF);
+
+  const navigate = useNavigate();
+
+  const userInfo = {
+    ids: props.selectedSeats,
+    name: {userName},
+    cpf: {userCPF}
+  }
+
+  const dataPackage = {name:props.movieName, date:props.movieDate, time:props.movieTime, userInfo:{userInfo}};
+
+  const reservation = async (dataPackage) => {
+    try {
+      const response = await makeReservation(dataPackage);
+      console.log(response);
+      navigate("/sucess", {state: userInfo });
+    } catch(error) {
+        console.log(error.response);
+        alert("There was an error in the data, please fill it in again!");
+    }
+  }
+
+  const submit = () => {
+    reservation(dataPackage);
+  }
+
+  return (
+    <>
+      <UserDataContainer>
+        <Wrapper>
+          <TitleInput>
+            <span>Nome do comprador:</span>
+            <Input onChange={ (e) => setUserName(e.target.value) } placeholder="Digite seu nome..." value={userName}/>
+          </TitleInput>
+        </Wrapper>
+        <Wrapper>
+          <TitleInput>
+            <span>CPF do comprador:</span>
+            <Input onChange={ (e) => setUserCPF(e.target.value) } placeholder="Digite seu CPF..." value={userCPF}/>
+          </TitleInput>
+        </Wrapper>
+      </UserDataContainer>
+
+      <Button onClick={submit}>Reservar assento(s)</Button>
+    </>
+  );
+}
+
+export default UserData;

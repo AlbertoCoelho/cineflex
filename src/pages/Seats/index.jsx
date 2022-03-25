@@ -2,9 +2,10 @@ import { useParams } from "react-router-dom";
 import { useState,useEffect } from "react";
 
 import Seat from "../../components/Seat";
+import UserData from "../../components/UserData";
 
 import { MainContainer } from '../MovieChoice/style';
-import { Title,SeatsContainer } from './style';
+import { Title,SeatsContainer,SeatSignageContainer,SeatSignage,SeatStatus,SeatSignageText } from './style';
 
 import { getSeats } from "../../services/api";
 
@@ -43,6 +44,27 @@ const Seats = () => {
           ))
         }
       </SeatsContainer>
+
+      <SeatSignageContainer>
+        <SeatSignage>
+          <SeatStatus className='selected' />
+          <SeatStatus className='available'/>
+          <SeatStatus className='unavailable'/>
+        </SeatSignage>
+        <SeatSignageText>
+          <span>Selecionado</span>
+          <span>Disponível</span>
+          <span>Indisponível</span>
+        </SeatSignageText>
+      </SeatSignageContainer>
+
+      <UserData
+       selectedSeats={selectedSeats} 
+       movieName={seats.movie.title}
+       movieDate={seats.day.date}
+       movieTime={seats.name}   
+      />
+
     </MainContainer>
   );
 }
