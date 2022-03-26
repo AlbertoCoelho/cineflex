@@ -5,7 +5,7 @@ import Seat from "../../components/Seat";
 import UserData from "../../components/UserData";
 
 import { MainContainer } from '../MovieChoice/style';
-import { Title,SeatsContainer,SeatSignageContainer,SeatSignage,SeatStatus,SeatSignageText } from './style';
+import { Title,SeatsContainer,SeatSignageContainer,SeatSignage,SeatStatus,SeatSignageText,Footer,MovieImageBox,FooterText } from './style';
 
 import { getSeats } from "../../services/api";
 
@@ -64,6 +64,16 @@ const Seats = () => {
        movieDate={seats.day.date}
        movieTime={seats.name}   
       />
+
+      <Footer>
+        <MovieImageBox>
+          <img src={seats.movie.posterURL} alt="FooterImage" />
+        </MovieImageBox>
+        <FooterText>
+          <h3>{seats.movie.title}</h3>
+          <h3>{seats.day.weekday} - {seats.name}</h3>
+        </FooterText>
+      </Footer>
 
     </MainContainer>
   );

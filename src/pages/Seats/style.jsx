@@ -72,11 +72,54 @@ const SeatSignageText = styled.div`
   color: #4E5A65;
 `
 
+const Footer = styled.div`
+  width: 100%;
+  height: 115px;
+
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  background-color: #DFE6ED;
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+`
+
+const MovieImageBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  width: 64px;
+  height: 75%;
+
+  box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+
+  background-color: #FFFFFF;
+
+  margin-left: 15px;
+
+  img {
+    height: 90%;
+    width: 80%;
+  }
+`
+
+const FooterText = styled.div`
+
+`
+
 export {
   Title,
   SeatsContainer,
   SeatSignageContainer,
   SeatSignage,
   SeatStatus,
-  SeatSignageText
+  SeatSignageText,
+  Footer,
+  MovieImageBox,
+  FooterText
 }
