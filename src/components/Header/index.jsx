@@ -49,6 +49,8 @@ const Container = styled.div`
     position: absolute;
     left: 20px;
     bottom: 5px;
+
+    cursor: pointer;
   }
 `
 
