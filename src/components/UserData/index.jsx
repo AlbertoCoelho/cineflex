@@ -8,13 +8,9 @@ import { UserDataContainer,Wrapper,TitleInput } from "./style";
 import Input from "../Input";
 import Button from "../Button";
 
-
 const UserData = (props) => {
   const [userName,setUserName] = useState("");
   const [userCPF,setUserCPF] = useState("");
-  console.log(props.selectedSeats);
-  console.log(userName);
-  console.log(userCPF);
 
   const navigate = useNavigate();
 
@@ -31,8 +27,7 @@ const UserData = (props) => {
       const response = await makeReservation(userInfo);
       console.log(response);
       navigate("/sucess", {state: dataPackage });
-    } catch(error) {
-        console.log(error.response);
+    } catch {
         alert("There was an error in the data, please fill it in again!");
     }
   }

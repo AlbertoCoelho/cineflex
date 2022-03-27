@@ -32,11 +32,11 @@ const Seat = (props) => {
 
 }
 
-const SeatAvailable = styled.div`
+const SeatAvailable = styled.div(({ color }) => `
 width: 26px;
 height: 26px;
-background-color: ${props => props.color ? '#45BDB0' : '#C3CFD9'};
-border: ${props => props.color ? '1px solid #45BDB0' : '1px solid #808F9D'};
+background-color: ${ color ? '#45BDB0' : '#C3CFD9'};
+border: ${ color ? '1px solid #45BDB0' : '1px solid #808F9D'};
 border-radius: 12px;
 
 display: flex;
@@ -49,7 +49,7 @@ font-weight: normal;
 font-size: 11px;
 
 cursor: pointer;
-`
+`)
 
 const SeatUnavailable = styled.div`
 width: 26px;
