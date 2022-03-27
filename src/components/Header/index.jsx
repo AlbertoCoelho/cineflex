@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { useNavigate } from "react-router-dom";
+import { IconContext } from "react-icons";
+import { CgChevronLeftO } from 'react-icons/cg';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -7,6 +9,13 @@ const Header = () => {
   return (
     <Container >
       <span onClick={() => navigate("/")}>CINEFLEX</span>
+      { window.location.pathname === "/" ? "" : 
+      <div className="return">
+        <IconContext.Provider value={{ color: "#000000", className: "global-class-name", size: "3em" }}>
+          <CgChevronLeftO onClick={() => navigate(-1)}/>
+        </IconContext.Provider>
+      </div>
+      }
     </Container>
   );
 }
@@ -20,6 +29,8 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
 
+  position: relative;
+
   background-color: #C3CFD9;
 
   span {
@@ -32,6 +43,12 @@ const Container = styled.div`
 
   a {
     text-decoration: none;
+  }
+
+  .return {
+    position: absolute;
+    left: 20px;
+    bottom: 5px;
   }
 `
 
